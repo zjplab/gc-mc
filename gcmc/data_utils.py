@@ -80,7 +80,7 @@ def download_dataset(dataset, files, data_dir):
         source = [target_dir + '/' + s for s in os.listdir(target_dir)]
         destination = data_dir+'/'
         for f in source:
-            shutil.copy(f, destination)
+            shutil.copyfile(f, '%s/%s' % (destination, f.split('/')[-1]))
 
         shutil.rmtree(target_dir)
 
