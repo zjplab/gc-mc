@@ -76,13 +76,13 @@ def download_dataset(dataset, files, data_dir):
 
         with ZipFile(StringIO(request.read())) as zip_ref:
             zip_ref.extractall('data/')
-        #rename("./data/"+dataset.replace('_', '-'), "./data/"+dataset)
-        source = [target_dir + '/' + s for s in os.listdir(target_dir)]
-        destination = data_dir+'/'
-        for f in source:
-            shutil.copyfile(f, '%s%s' % (destination, f.split('/')[-1]))
+        rename("./data/"+dataset.replace('_', '-'), "./data/"+dataset)
+        #source = [target_dir + '/' + s for s in os.listdir(target_dir)]
+        #destination = data_dir+'/'
+        #for f in source:
+        #    shutil.copyfile(f, '%s%s' % (destination, f.split('/')[-1]))
 
-        shutil.rmtree(target_dir)
+        #shutil.rmtree(target_dir)
 
 
 def load_data(fname, seed=1234, verbose=True):
