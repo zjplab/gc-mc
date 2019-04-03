@@ -14,7 +14,7 @@ from zipfile import ZipFile
 from StringIO import StringIO
 import shutil
 import os.path
-
+from os import rename
 
 def data_iterator(data, batch_size):
     """
@@ -76,7 +76,7 @@ def download_dataset(dataset, files, data_dir):
 
         with ZipFile(StringIO(request.read())) as zip_ref:
             zip_ref.extractall('data/')
-
+        rename("./data/"+dataset.replace('_', '-'), "./data/"+dataset)
         source = [target_dir + '/' + s for s in os.listdir(target_dir)]
         destination = data_dir+'/'
         for f in source:
