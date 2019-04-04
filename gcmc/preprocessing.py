@@ -151,7 +151,7 @@ def create_trainvaltest_split(dataset, seed=1234, testing=False, datasplit_path=
     labels = labels.reshape([-1])
 
     # number of test and validation edges
-    num_test = int(np.ceil(ratings.shape[0] * 0.1)) # Rememebr rating is one dim array
+    num_test = int(np.ceil(ratings.shape[0] * 0.1)) # Remember rating is one dim array
     if dataset == 'ml_100k':
         num_val = int(np.ceil(ratings.shape[0] * 0.9 * 0.05))
     else:
@@ -170,7 +170,11 @@ def create_trainvaltest_split(dataset, seed=1234, testing=False, datasplit_path=
     train_pairs_idx = pairs_nonzero[0:num_train]
     val_pairs_idx = pairs_nonzero[num_train:num_train + num_val]
     test_pairs_idx = pairs_nonzero[num_train + num_val:]
-
+    
+    #bad naming, should be called u_test instead
+    #these are all row vectors
+    #Fuck the original author
+    #Please delete these comments
     u_test_idx, v_test_idx = test_pairs_idx.transpose()
     u_val_idx, v_val_idx = val_pairs_idx.transpose()
     u_train_idx, v_train_idx = train_pairs_idx.transpose()
