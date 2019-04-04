@@ -102,10 +102,10 @@ def load_data(fname, seed=1234, verbose=True):
 
     num_items : int
 
-    u_nodes : np.int32 arrays
+    u_nodes_ratings : np.int32 arrays
         User indices
 
-    v_nodes : np.int32 array
+    v_nodes_ratings : np.int32 array
         item (movie) indices
 
     ratings : np.float32 array
