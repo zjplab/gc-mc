@@ -147,11 +147,11 @@ def create_trainvaltest_split(dataset, seed=1234, testing=False, datasplit_path=
     rating_dict = {r: i for i, r in enumerate(np.sort(np.unique(ratings)).tolist())}
 
     labels = np.full((num_users, num_items), neutral_rating, dtype=np.int32)
-    labels[u_nodes, v_nodes] = np.array([rating_dict[r] for r in ratings])
+    labels[u_nodes, v_nodes] = np.array([rating_dict[r] for r in ratings]) #advanced indexing 
     labels = labels.reshape([-1])
 
     # number of test and validation edges
-    num_test = int(np.ceil(ratings.shape[0] * 0.1))
+    num_test = int(np.ceil(ratings.shape[0] * 0.1)) # Rememebr rating is one dim array
     if dataset == 'ml_100k':
         num_val = int(np.ceil(ratings.shape[0] * 0.9 * 0.05))
     else:
