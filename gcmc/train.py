@@ -120,7 +120,7 @@ elif DATASET == 'ml_10m':
     NUMCLASSES = 10
     print('\n WARNING: this might run out of RAM, consider using train_minibatch.py for dataset %s' % DATASET)
     print('If you want to proceed with this option anyway, uncomment this.\n')
-    sys.exit(1)
+    # sys.exit(1)
 elif DATASET == 'flixster':
     NUMCLASSES = 10
 elif DATASET == 'yahoo_music':
