@@ -198,7 +198,7 @@ else:
 
 
 # global normalization
-support = []
+support = []  #support is a list of binary rating matrices 
 support_t = []
 adj_train_int = sp.csr_matrix(adj_train, dtype=np.int32)
 
@@ -452,7 +452,8 @@ for epoch in range(NB_EPOCH):
         saver = tf.train.Saver()
         saver.restore(sess, save_path)
 
-
+import dill
+dill.dump_session("./temp/saved_model.pkl")
 # store model including exponential moving averages
 saver = tf.train.Saver()
 save_path = saver.save(sess, "tmp/%s.ckpt" % model.name, global_step=model.global_step)

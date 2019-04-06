@@ -14,7 +14,7 @@ from gcmc.data_utils import load_data, map_data, download_dataset
 
 def normalize_features(feat):
 
-    degree = np.asarray(feat.sum(1)).flatten()
+    degree = np.asarray(feat.sum(axis=1)).flatten()
 
     # set zeros to inf to avoid dividing by zero
     degree[degree == 0.] = np.inf

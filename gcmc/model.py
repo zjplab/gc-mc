@@ -341,6 +341,7 @@ class RecommenderSideInfoGAE(Model):
 
         # gcn layer
         layer = self.layers[0]
+        #inject u,v features
         gcn_hidden = layer(self.inputs)
 
         # dense layer for features
@@ -367,7 +368,7 @@ class RecommenderSideInfoGAE(Model):
             hidden = layer(self.activations[-1])
             self.activations.append(hidden)
         self.outputs = self.activations[-1]
-
+        #this statement shoule be duplicated 
         self.outputs = self.activations[-1]
 
         # Store model variables for easy access
