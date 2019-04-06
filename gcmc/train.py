@@ -456,10 +456,10 @@ for epoch in range(NB_EPOCH):
 # store model including exponential moving averages
 saver = tf.train.Saver()
 save_path = saver.save(sess, "tmp/%s.ckpt" % model.name, global_step=model.global_step)
-import pickle
-pickle.dumps(model.outputs.eval(session=sess， feed_dict=train_feed_dict) ,"./tmp/train.pkl")
-pickle.dumps(model.outputs.eval(session=sess， feed_dict=val_feed_dict), "./tmp/val.pkl")
 
+import pickle
+pickle.dump(model.outputs.eval(session=sess, feed_dict=train_feed_dict), "./tmp/train.pkl")
+pickle.dump(model.outputs.eval(session=sess, feed_dict=train_feed_dict), "./tmp/train.pkl")
 
 if VERBOSE:
     print("\nOptimization Finished!")
