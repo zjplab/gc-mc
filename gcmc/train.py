@@ -452,12 +452,12 @@ for epoch in range(NB_EPOCH):
         saver = tf.train.Saver()
         saver.restore(sess, save_path)
 
-import dill
-dill.dump_session("./temp/saved_model.pkl")
+
 # store model including exponential moving averages
 saver = tf.train.Saver()
 save_path = saver.save(sess, "tmp/%s.ckpt" % model.name, global_step=model.global_step)
-
+import dill
+dill.dump_session("./temp/saved_model.pkl")
 
 if VERBOSE:
     print("\nOptimization Finished!")
