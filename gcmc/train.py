@@ -457,7 +457,7 @@ for epoch in range(NB_EPOCH):
 saver = tf.train.Saver()
 save_path = saver.save(sess, "tmp/%s.ckpt" % model.name, global_step=model.global_step)
 import pickle
-pickle.dumps(model.output.eval(session=sess),"./tmp/output.pkl")
+pickle.dumps(model.outputs.eval(session=sess),"./tmp/output.pkl")
 
 if VERBOSE:
     print("\nOptimization Finished!")
