@@ -456,8 +456,8 @@ for epoch in range(NB_EPOCH):
 # store model including exponential moving averages
 saver = tf.train.Saver()
 save_path = saver.save(sess, "tmp/%s.ckpt" % model.name, global_step=model.global_step)
-import dill
-dill.dump_session("./tmp/saved_model.pkl")
+import pickle
+pickle.dumps(model.output.eval(session=sess),"./tmp/output.pkl")
 
 if VERBOSE:
     print("\nOptimization Finished!")
