@@ -458,8 +458,11 @@ saver = tf.train.Saver()
 save_path = saver.save(sess, "tmp/%s.ckpt" % model.name, global_step=model.global_step)
 
 import pickle
-pickle.dump(model.outputs.eval(session=sess, feed_dict=train_feed_dict), "./tmp/train.pkl")
-pickle.dump(model.outputs.eval(session=sess, feed_dict=train_feed_dict), "./tmp/train.pkl")
+with open("./tmp/train.pkl",'wb') as f:
+    pickle.dump(model.outputs.eval(session=sess, feed_dict=train_feed_dict), f)
+with open("./tmp/val.pkl",'wb') as f:
+    pickle.dump(model.outputs.eval(session=sess, feed_dict=train_feed_dict), f)
+
 
 if VERBOSE:
     print("\nOptimization Finished!")
