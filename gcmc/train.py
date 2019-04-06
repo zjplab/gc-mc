@@ -457,8 +457,8 @@ for epoch in range(NB_EPOCH):
 saver = tf.train.Saver()
 save_path = saver.save(sess, "tmp/%s.ckpt" % model.name, global_step=model.global_step)
 import pickle
-pickle.dumps(model.outputs.eval(session=sess， feed_dict=train_feed_dict),"./tmp/train.pkl")
-pickle.dumps(model.outputs.eval(session=sess， feed_dict=val_feed_dict),"./tmp/val.pkl")
+pickle.dumps(model.outputs.eval(session=sess， feed_dict=train_feed_dict) ,"./tmp/train.pkl")
+pickle.dumps(model.outputs.eval(session=sess， feed_dict=val_feed_dict), "./tmp/val.pkl")
 
 
 if VERBOSE:
