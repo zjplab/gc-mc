@@ -457,7 +457,7 @@ for epoch in range(NB_EPOCH):
 saver = tf.train.Saver()
 save_path = saver.save(sess, "tmp/%s.ckpt" % model.name, global_step=model.global_step)
 import dill
-dill.dump_session("./temp/saved_model.pkl")
+dill.dump_session("./tmp/saved_model.pkl")
 
 if VERBOSE:
     print("\nOptimization Finished!")
