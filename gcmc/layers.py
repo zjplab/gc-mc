@@ -185,6 +185,8 @@ class StackGCN(Layer):
 
         if self.logging:
             self._log_vars()
+        #debug
+        print(output_dim)
 
     def _call(self, inputs):
         x_u = inputs[0]
@@ -214,7 +216,6 @@ class StackGCN(Layer):
         z_v = tf.concat(axis=1, values=supports_v)
 
         #debug
-        print(output_dim)
         print(z_u.shape)
         print(z_v.shape)
         for u in supports_u:
