@@ -216,6 +216,10 @@ class StackGCN(Layer):
         #debug
         print(z_u.shape)
         print(z_v.shape)
+        for u in supports_u:
+            print(u.shape)
+        for v in supports_v:
+            print(v.shape)
 
         u_outputs = self.act(z_u)
         v_outputs = self.act(z_v)
