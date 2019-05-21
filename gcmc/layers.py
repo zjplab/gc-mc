@@ -209,9 +209,13 @@ class StackGCN(Layer):
 
             supports_u.append(tf.sparse_tensor_dense_matmul(support, tmp_v))
             supports_v.append(tf.sparse_tensor_dense_matmul(support_transpose, tmp_u))
-
+            
         z_u = tf.concat(axis=1, values=supports_u)
         z_v = tf.concat(axis=1, values=supports_v)
+
+        #debug
+        print(z_u.size)
+        print(z_v.size)
 
         u_outputs = self.act(z_u)
         v_outputs = self.act(z_v)
