@@ -214,7 +214,7 @@ class StackGCN(Layer):
         z_v = tf.concat(axis=1, values=supports_v)
 
         #debug
-        print(self.output_dim)
+        print(output_dim)
         print(z_u.shape)
         print(z_v.shape)
         for u in supports_u:
